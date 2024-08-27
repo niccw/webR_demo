@@ -6,3 +6,4 @@ lib/
 **/.Rprofile
 **/.Rproj.user/
 **/*Rproj
+.Rproj.user
