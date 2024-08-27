@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 1</title>
+</head>
+<body>
+    <h1>Web R Demo1</h1>
+    <div id="rnorm_result"></div>
+
+    <script type="module">
+        import('https://webr.r-wasm.org/latest/webr.mjs').then(
+            async ({ WebR }) => {
+                window.webR = new WebR();
+                await webR.init();
+
+                let result = await window.webR.evalR('rnorm(10,5,1)');
+                let output = await result.toArray();
+
+                console.log('Result of running `rnorm` from webR: ', output);
+                document.getElementById('rnorm_result').textContent = JSON.stringify(output);
+            }
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>WebR Test Console</title>
+  </head>
+  <body>
+    <div>
+      <pre><code id="out">Loading webR, please wait...</code></pre>
+      <input spellcheck="false" autocomplete="off" id="input" type="text">
+      <button onclick="globalThis.sendInput()" id="run">Run</button>
+    </div>
+    
+    <script type="module">
+      /* Create a webR console using the Console helper class */
+      import { Console } from 'https://webr.r-wasm.org/latest/webr.mjs';
+      const webRConsole = new Console({
+        stdout: line => document.getElementById('out').append(line + '\n'),
+        stderr: line => document.getElementById('out').append(line + '\n'),
+        prompt: p => document.getElementById('out').append(p),
+      });
+      webRConsole.run();
+      
+      /* Write to the webR console using the ``stdin()`` method */
+      let input = document.getElementById('input');
+      globalThis.sendInput = () => {
+        webRConsole.stdin(input.value);
+        document.getElementById('out').append(input.value + '\n');
+        input.value = "";
+      }
+      
+      /* Send input on Enter key */
+      input.addEventListener(
+        "keydown",
+        (evt) => {if(evt.keyCode === 13) globalThis.sendInput()}
+      );
+    </script>
+  </body>
+</html>

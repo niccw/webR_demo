@@ -1,0 +1,8 @@
+.vscode/
+lib/
+**/.DS_Store
+**/renv/
+**/.Rhistory
+**/.Rprofile
+**/.Rproj.user/
+**/*Rproj
