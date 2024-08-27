@@ -1,0 +1,3 @@
+[submodule "shinyR/webR_site_uploader"]
+	path = shinyR/webR_site_uploader
+	url = https://github.com/niccw/webR_test2.git
