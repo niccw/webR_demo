@@ -23,6 +23,7 @@
         - app_uploader/
             - A Shiny app that read uploaded CSV and plot it
             - Compule to webR_site_uploader/
+            - [webR_test2 app](https://niccw.github.io/webR_test2/)
 
 ## Quarto (Quarto + WebR)
-
+[quarto_live_demo app](https://niccw.github.io/quarto_live_demo/)
